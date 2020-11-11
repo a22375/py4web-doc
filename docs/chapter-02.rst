@@ -177,29 +177,33 @@ The ``request`` object
 
 From py4web you can import ``request``
 
-\````python from py4web import request
+.. code:: python 
 
-@action(‘paint’) def paint(): if ‘color’ in request.query return
-‘Painting in %s’ % request.query.get(‘color’) return ‘You did not
-specify a color’
+   from py4web import request
+
+   @action('paint') 
+   def paint(): 
+       if 'color' in request.query: 
+           return 'Painting in %s' % request.query.get('color') 
+       return 'You did not specify a color'
 
 ::
 
-
-   This action can be accessed at:
+This action can be accessed at:
 
 http://localhost:8000/myapp/paint?color=red
 
 ::
 
 
-   Notice that the request object is the a [Bottle request object](https://bottlepy.org/docs/dev/api.html#the-request-object)
+Notice that the request object is the a [Bottle request object](https://bottlepy.org/docs/dev/api.html#the-request-object)
 
-   #### Templates
+#### Templates
 
-   In order to use a yatl template you must declare it. For example create a file ```apps/myapp/templates/paint.html``` that contains:
+In order to use a yatl template you must declare it. For example create a file ```apps/myapp/templates/paint.html``` that contains:
 
-   ```html
+.. code-block:: HTML
+
    <body>
      <head>
        <style>
@@ -210,6 +214,7 @@ http://localhost:8000/myapp/paint?color=red
        <h1>Color</h1>
     </body>
    </html>
+
 
 then modify the paint action to use the template and default to green.
 
